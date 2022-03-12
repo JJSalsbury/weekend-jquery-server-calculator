@@ -10,13 +10,22 @@ const bodyParser = require('body-parser');
 
 
 let dataLibrary = [
-    // { text: 'I\'m not going to school just for the academics - I wanted to share ideas, to be around people who are passionate about learning.', author: 'Emma Watson' },
-    // { text: 'Remember there\'s no such thing as a small act of kindness. Every act creates a ripple with no logical end.', author: 'Scott Adams' },
-    // { text: 'Intelligence plus character-that is the goal of true education.', author: 'Martin Luther King, Jr.' }
+    { num1: 3, num2: 5 }
 ];
 
 
-//**add bodyParser app to add a new line of text to the quoteLIST
+// function calculate(num1, num2){
+//    console.log('in Calculate function');
+//    let num1 = $(#'num1').val();
+//    let num2 = $(#'num2').val();
+
+//    const mathObj = {
+//        num1: num1,
+//        num2: num2,
+//    }
+// }
+
+//**add bodyParser app to add a new line of text to the dataLibrary
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve static files (HTML, CSS, Client JS)
@@ -42,8 +51,8 @@ app.post('/calc', (req, res) => {
 
 //localhost:5000/calc
 app.get('/calc', (req, res) => {
-    // /quotes route
-    // get route to /quotes
+    // /calc route
+    // get route to /calc
 
     console.log('GET /calc!');
     //server must respond!

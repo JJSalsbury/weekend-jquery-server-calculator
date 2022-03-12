@@ -13,18 +13,6 @@ let dataLibrary = [
     { num1: 3, num2: 5 }
 ];
 
-
-// function calculate(num1, num2){
-//    console.log('in Calculate function');
-//    let num1 = $(#'num1').val();
-//    let num2 = $(#'num2').val();
-
-//    const mathObj = {
-//        num1: num1,
-//        num2: num2,
-//    }
-// }
-
 //**add bodyParser app to add a new line of text to the dataLibrary
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -57,5 +45,4 @@ app.get('/calc', (req, res) => {
     console.log('GET /calc!');
     //server must respond!
     res.send(dataLibrary);
-
 })

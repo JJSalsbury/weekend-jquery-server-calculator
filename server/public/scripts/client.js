@@ -35,9 +35,13 @@ function handleSubmit() {
         }
     }).then(function(response) {
         console.log(response)
+        
         //DOM is out of sync, need to GET again, call the getData function
-        //Call render function to render to DOM.
-        render(response);
+        // //Call render function to render to DOM.
+        // render(response); !!!!made it show undefined in console on click then would
+        // showed appended data after second click
+        //
+        getData();
 
         //empty inputs on DOM
         $('#num1').val('');
@@ -54,7 +58,7 @@ function handleClear(){
 
 //AJAX!!!!!! REQ AND RESPONSE. starts from client, server responds...
 function getData(){
-    console.log('GET dataLibrary...');
+    console.log('GET dataLibrary');
     //ajax method built into Jquery. you call it and ask it what to do...
     $.ajax({
         //tells ajax we going here
@@ -85,6 +89,6 @@ function render(calculations) {
     console.log('In render Function');
     //
     for (const calc of calculations) {
-        $('#calc').append(`<li>${calc.num1} ${calc.num2}</li>`);
+        $('#calc').append(`<li>${calc.num1} ${calc.num2}</li>`)
     } 
 }

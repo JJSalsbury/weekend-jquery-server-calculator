@@ -1,3 +1,5 @@
+const { takeCoverage } = require("v8");
+
 console.log('client loaded!');
 
 //*
@@ -9,11 +11,11 @@ function handleReady() {
     console.log('JQuery ready to roll!');
 
     //after adding a button to html and two fields...
-    $('#submit').on('click', handleSubmit);
-    $('#add').on('click', handleSubmit);
-    $('#subtract').on('click', handleSubmit);
-    $('#multiply').on('click', handleSubmit);
-    $('#divide').on('click', handleSubmit);
+    $('#equals').on('click', handleSubmit);
+    $('#add').on('click', addFunc);
+    $('#subtract').on('click', subFunc);
+    $('#multiply').on('click', mulFunc);
+    $('#divide').on('click', divideFunc);
     $('#clear').on('click', handleClear);
 
 getData();

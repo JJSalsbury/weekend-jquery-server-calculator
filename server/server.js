@@ -26,18 +26,7 @@ app.listen(PORT, () => {
 app.post('/calc', (req, res) => {
     console.log('POST calc', req.body);
 
-    let input1 = Number(req.body.num1);
-    let operator = req.body.math;
-    let input2 = Number(req.body.num2);
-
-    dataLibrary.push(req.body);
-    //console.log(dataLibrary.num1)
-    
-    // function calculate (num1, operator, num2) {
-    //     let answer = input1 + input2;
-    //     return answer;
-    // }
-
+    calculate(req.body);
     //200 ok
     //201 CREATED
 
@@ -56,8 +45,32 @@ app.get('/calc', (req, res) => {
     res.send(dataLibrary);
 })
 
-// function addNum(num1, num2) {
-//   //let sum = num1  + num2;
-//     let sum = dataLibrary.num1 + dataLibrary.num2
-//     return sum;
-// }
+function calculate (solution) {
+    let input1 = Number(solution.num1);
+    let math = solution.math;
+    let input2 = Number(solution.num2);
+    
+    switch (math) {
+        case '+':
+            answer = input1 + input2;
+            dataLibrary.push(`${answer} = ${input1} + ${input2}`);
+            answers.push(answer);
+            break;
+
+        case '-':
+            answer = input1 - input2;
+            dataLibrary.push(`${answer} = ${input1} - ${input2}`);
+            answers.push(answer);
+            break;
+        case '*':
+            answer = input1 * input2;
+            dataLibrary.push(`${answer} = ${input1} * ${input2}`);
+            answers.push(answer);
+            break;
+        case '/':
+            answer = input1 / input2;
+            dataLibrary.push(`${answer} = ${input1} / ${input2}`);
+            answers.push(answer);
+            break;
+    }
+}

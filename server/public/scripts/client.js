@@ -4,6 +4,7 @@ console.log('client loaded!');
 
 $(document).ready(handleReady);
 
+
 function handleReady() {
     console.log('JQuery ready to roll!');
 
@@ -13,7 +14,7 @@ function handleReady() {
     $('#subtract').on('click', handleSubmit);
     $('#multiply').on('click', handleSubmit);
     $('#divide').on('click', handleSubmit);
-    $('#clear').on('click', handleSubmit);
+    $('#clear').on('click', handleClear);
 
 getData();
 }
@@ -31,6 +32,7 @@ function handleSubmit() {
         //data will become req.body on the server
         data: {
             num1: num1,
+            math: math,
             num2: num2
         }
     }).then(function(response) {
@@ -40,7 +42,7 @@ function handleSubmit() {
         // //Call render function to render to DOM.
         // render(response); !!!!made it show undefined in console on click then would
         // showed appended data after second click
-        //
+        //called GetData Function to render to DOM
         getData();
 
         //empty inputs on DOM
@@ -80,6 +82,7 @@ function getData(){
         console.log(error);
         alert('error in GET!')
 })
+
     console.log('end of getData Function...')
 }//end of getData
 

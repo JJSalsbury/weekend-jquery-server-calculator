@@ -1,3 +1,15 @@
 body {
     background-color: lightgrey;
 }
+
+.operator {
+    background-color: dimgrey;
+}
+
+#equals {
+    background-color: dimgray;
+}
+
+#clear {
+    background-color: dimgray;
+}

@@ -1,26 +1,26 @@
-//Installed express module in node 
+//Installed express module in node. 
 
-//Importing/requiring express library
+//Importing/requiring express library.
 const express = require('express');
 
 //Server creation:
 const app = express();
 const PORT = 5000;
 
-//Importing/requiring body parser
+//Importing/requiring body parser.
 const bodyParser = require('body-parser');
 
 //Created empty arrays to store dynamic data.
 const data = [];
 const answers = [];
 
-//added bodyParser app to add a new line of text to the data array
+//Added bodyParser app to add a new line of text to the data array.
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files (HTML, CSS, Client JS)
+// Serve static files (HTML, CSS, Client JS).
 app.use(express.static('server/public'));
 
-// start the server
+//Starting the server.
 app.listen(PORT, () => {
     console.log('Server is running on port', PORT)
 })
@@ -42,7 +42,7 @@ app.post('/calc', (req, res) => {
 
 //** GET Routes **//
 
-//GET route to localhost:5000/calc
+//GET route to localhost:5000/calc.
 app.get('/calc', (req, res) => {
     //log'd to ensure that route is operation.
     console.log('GET /calc route OK');
@@ -50,7 +50,7 @@ app.get('/calc', (req, res) => {
     res.send(data);
 })
 
-//GET route to localhost:5000/answers
+//GET route to localhost:5000/answers.
 app.get('/answers', (req, res) => {
     //log'd to ensure that route is operation.
     console.log('GET /answers route OK');

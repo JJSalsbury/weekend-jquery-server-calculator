@@ -32,8 +32,8 @@ function handleSubmit() {
     $.ajax({
         url: '/calc',
         method: 'POST',
-        //data will become req.body on the server
-        //created object keys to take in user input
+        //Data will become req.body on the server.
+        //Created object keys to take in user input.
         data: {
             num1: num1,
             math: math,
@@ -42,7 +42,7 @@ function handleSubmit() {
     }).then(function (response) {
         //Log'd to show post route in server OK (res.sendStatus(200)).
         console.log(response)
-        //Call to getData function to initiate in handleSubmit
+        //Call to getData function to initiate in handleSubmit.
         getData();
 
         //empty inputs on DOM
@@ -53,9 +53,9 @@ function handleSubmit() {
 
 //Created function to clear input on button click.
 function handleClear() {
-    //Jquery call to input elements and empty on DOM
+    //Jquery call to input elements and empty on DOM.
     $('input').val('');
-}//end of handle clear function
+}//end of handle clear function.
 
 //Created function to get data from the server.
 //AJAX!!!!!! REQ AND RESPONSE. starts from client, server responds...
@@ -66,26 +66,26 @@ function getData() {
         //direction to '/calc' route from server.
         url: '/calc',
         //direction to request a type of route (GET route).
-        method: 'GET'   
+        method: 'GET'
     })
 
-    //Used .then to initiate server action after receipt of the GET request.
-    //Will receive res.send(answers) from the server, as directed in the app.get/answers route.
-    .then(function (response) {
-        //Log'd response from server in console 
-        console.log('data[]; (on server.js):', response);
-        //NOW... append the data in the response to the DOM
-        //Call render function to initiate in getData Function. Should render data to DOM.
-        render(response);
-    })
-    
-    //Used .catch method to catch errors for the res.send() on the server in the app.get route.
-    .catch(function (error) {
-        //logged to see error incase alert isn't working.
-        console.log(error);
-        //created alert to display to the DOM indicating error in GET /calc request.
-        alert('error in GET /calc!');
-    })
+        //Used .then to initiate server action after receipt of the GET request.
+        //Will receive res.send(answers) from the server, as directed in the app.get/answers route.
+        .then(function (response) {
+            //Log'd response from server in console 
+            console.log('data[]; (on server.js):', response);
+            //NOW... append the data in the response to the DOM
+            //Call render function to initiate in getData Function. Should render data to DOM.
+            render(response);
+        })
+
+        //Used .catch method to catch errors for the res.send() on the server in the app.get route.
+        .catch(function (error) {
+            //logged to see error incase alert isn't working.
+            console.log(error);
+            //created alert to display to the DOM indicating error in GET /calc request.
+            alert('error in GET /calc!');
+        })
     //ajax method: GET request. Requests the get route from the server and the type of request.
     $.ajax({
         //direction to '/answers' route from server.
@@ -94,21 +94,21 @@ function getData() {
         method: 'GET'
     })
 
-    //Used .then method to initiate server action after receipt of the GET request.
-    //Will receive res.send(answers) from the server, as directed in the app.get/answers route.
-    .then(function (response) {
-        console.log('answers[]; (on server.js):', response);
-        //client responds with product from userAnswers function.
-        userAnswer(response);
-    })
-    
-    //Used .catch method to catch errors for the res.send() on the server in the app.get route.
-    .catch(function (error) {
-        //logged to see error incase alert isn't working.
-        console.log(error);
-        //created alert to display to the DOM indicating error in GET /answers request.
-        alert('error in GET /answers!');
-    })
+        //Used .then method to initiate server action after receipt of the GET request.
+        //Will receive res.send(answers) from the server, as directed in the app.get/answers route.
+        .then(function (response) {
+            console.log('answers[]; (on server.js):', response);
+            //client responds with product from userAnswers function.
+            userAnswer(response);
+        })
+
+        //Used .catch method to catch errors for the res.send() on the server in the app.get route.
+        .catch(function (error) {
+            //logged to see error incase alert isn't working.
+            console.log(error);
+            //created alert to display to the DOM indicating error in GET /answers request.
+            alert('error in GET /answers!');
+        })
     console.log('end of getData Function');
 }//end of getData Function.
 

@@ -4,13 +4,13 @@ body {
 }
 
 .operator {
-    background-color: dimgrey;
+    background-color: gray;
 }
 
 #equals {
-    background-color: dimgray;
+    background-color: gray;
 }
 
 #clear {
-    background-color: dimgray;
+    background-color: gray;
 }
